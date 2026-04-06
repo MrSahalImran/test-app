@@ -8,15 +8,4 @@ phases:
 
   build:
     commands:
-      - echo Build step (nothing here)
-
-  post_build:
-    commands:
-      - echo Deploying to EC2
-      - ssh -o StrictHostKeyChecking=no ubuntu@<EC2-IP> '
-        cd ~/app || git clone <repo-url> app && cd app &&
-        git pull &&
-        npm install &&
-        pkill node || true &&
-        nohup npm start > out.log 2>&1 &
-        '
+      - echo Build successful
