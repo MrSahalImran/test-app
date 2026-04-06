@@ -2,7 +2,14 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hello from CodeBuild 🚀");
+  res.send("Hello from ECS 🚀");
 });
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}`);
+});
